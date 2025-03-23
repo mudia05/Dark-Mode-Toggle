@@ -1,0 +1,61 @@
+/* Base styles for the entire page */
+body {
+  margin: 0; /* Removes default margin around the page */
+  height: 100vh; /* Makes the body take up the full viewport height */
+  display: flex; /* Uses flexbox to center content */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  transition: background-color 0.3s ease; /* Smooth transition effect when background color changes */
+  background-color: #ffffff; /* Default light background color */
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+  background-color: #121212; /* Dark background for dark mode */
+}
+
+/* Container for the toggle switch */
+.toggle-container {
+  position: relative; /* Allows positioning of inner elements absolutely */
+  width: 60px; /* Width of the toggle switch */
+  height: 30px; /* Height of the toggle switch */
+}
+
+/* Hides the default checkbox element */
+.toggle-checkbox {
+  display: none; /* Visually hides the checkbox but keeps it functional */
+}
+
+/* The custom switch track (the gray background) */
+.toggle-label {
+  position: absolute; /* Positioned relative to the container */
+  width: 100%; /* Full width of container */
+  height: 100%; /* Full height of container */
+  background-color: #ccc; /* Default switch track color */
+  border-radius: 30px; /* Makes the switch track fully rounded */
+  cursor: pointer; /* Changes cursor to pointer when hovered */
+  transition: background-color 0.3s ease; /* Smooth transition on background color change */
+}
+
+/* The circle inside the switch */
+.toggle-label::after {
+  content: ""; /* Required to generate a pseudo-element */
+  position: absolute; /* Position relative to label */
+  width: 26px; /* Width of the toggle handle (circle) */
+  height: 26px; /* Height of the toggle handle */
+  background-color: #ffffff; /* White circle */
+  border-radius: 50%; /* Fully round handle */
+  top: 2px; /* Space from top */
+  left: 2px; /* Space from left */
+  transition: transform 0.3s ease; /* Smooth slide when toggled */
+}
+
+/* When checkbox is checked (toggle is ON), change switch background */
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #4caf50; /* Green color when active */
+}
+
+/* When checkbox is checked, move the toggle handle (circle) to the right */
+.toggle-checkbox:checked + .toggle-label::after {
+  transform: translateX(30px); /* Slide the handle 30px to the right */
+}
